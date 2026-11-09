@@ -1,0 +1,82 @@
+/* Shared structure for the three home page style directions (home-1/2/3.html).
+   Each direction-N.css sets the variables and its own sections. */
+:root{--gap:clamp(20px,4vw,48px);--wrap:1280px}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,p,dl,dd,ol,ul{margin:0;padding:0}
+ol,ul{list-style:none}
+h1,h2,h3{font-family:var(--display);text-wrap:balance}
+:focus-visible{outline:2px solid var(--focus,var(--red));outline-offset:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gap)}
+.skip{position:absolute;left:-999px}
+.skip:focus{left:16px;top:16px;z-index:100;background:var(--bg);padding:10px 14px}
+section{padding-top:clamp(64px,9vw,128px)}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:76px}
+.brand{display:block;color:inherit}
+.logo{display:block;height:34px;width:auto;overflow:visible}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a:not(.btn){text-decoration:none;font-size:1rem}
+.nav a:not(.btn):hover{box-shadow:0 2px 0 var(--red)}
+.nav .btn{padding:.65em 1.2em}
+.menu-btn{display:none;font:500 .98rem var(--body);background:none;border:1px solid currentColor;color:inherit;padding:.5em .9em;cursor:pointer}
+
+/* Buttons and links */
+.btn{display:inline-flex;align-items:center;justify-content:center;font:500 1rem var(--body);padding:.9em 1.5em;border:1px solid var(--fg);text-decoration:none;color:var(--fg);background:transparent;transition:background .15s,color .15s,border-color .15s}
+.btn-solid{background:var(--fg);color:var(--bg)}
+.btn:hover{background:var(--red);border-color:var(--red);color:var(--on-red,#fff)}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.text-link{display:inline-block;font-weight:500;text-decoration:none;padding-bottom:4px;border-bottom:2px solid var(--red)}
+.text-link:hover{color:var(--red)}
+.status{display:inline-flex;align-items:center;gap:10px}
+.status::before{content:"";width:9px;height:9px;background:var(--red)}
+
+/* Footer */
+footer{margin-top:0;padding:56px 0 calc(40px + env(safe-area-inset-bottom,0px));font-size:.95rem;border-top:1px solid var(--line)}
+footer .logo{height:38px}
+.foot{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:var(--gap);margin-bottom:32px}
+.foot p{color:var(--muted);max-width:52ch;margin-bottom:1em}
+.foot nav{display:flex;flex-wrap:wrap;gap:8px 24px;align-content:start}
+.foot nav a{text-decoration:none}
+.foot nav a:hover{box-shadow:0 2px 0 var(--red)}
+.fine{border-top:1px solid var(--line);padding-top:22px;color:var(--muted);font-size:.82rem;line-height:1.55}
+.fine p{margin-bottom:1em}
+
+/* Lightbox (required by site.js) */
+dialog{border:0;padding:0;background:transparent;max-width:min(96vw,1400px);max-height:94vh}
+dialog::backdrop{background:rgba(8,14,19,.88)}
+
+/* Phone */
+.stickybar{display:none}
+@media (max-width:860px){
+  .menu-btn{display:block}
+  .logo{height:28px}
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0;padding:8px var(--gap) 20px}
+  .nav.open{display:flex}
+  .nav a:not(.btn){padding:14px 0;border-bottom:1px solid var(--line);font-size:1.05rem}
+  .nav a:not(.btn):hover{box-shadow:none}
+  .nav .btn{margin-top:16px}
+  .foot{grid-template-columns:1fr}
+  .stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;align-items:center;justify-content:space-between;gap:12px;background:var(--bg);border-top:1px solid var(--line);padding:10px var(--gap) calc(10px + env(safe-area-inset-bottom,0px))}
+  .stickybar span{font-size:.98rem;color:var(--muted)}
+  .stickybar strong{color:var(--fg);font-weight:500}
+  .stickybar .btn{padding:.65em 1.1em}
+  body.has-bar footer{padding-bottom:calc(150px + env(safe-area-inset-bottom,0px))}
+}
+
+/* Compare switcher: review aid only, remove before launch */
+.dirs{position:fixed;right:16px;bottom:16px;z-index:60;display:flex;align-items:center;gap:2px;padding:4px;background:#111;color:#fff;font:500 13px/1 system-ui,sans-serif;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+.dirs span{padding:0 10px;opacity:.65}
+.dirs a{padding:9px 11px;text-decoration:none;color:#fff;white-space:nowrap}
+.dirs a:hover{background:#333}
+.dirs a[aria-current]{background:#fff;color:#111}
+@media (max-width:860px){
+  .dirs{left:0;right:0;bottom:calc(62px + env(safe-area-inset-bottom,0px));justify-content:center;overflow-x:auto}
+  .dirs span{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}

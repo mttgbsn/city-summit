@@ -1,0 +1,72 @@
+/* Direction 2: Brick & Timber.
+   From the building: the buff brick base, the dark horizontal lap siding above it,
+   and the warm wood floors and cabinets inside the homes. */
+:root{
+  --bg:#F5EFE5; --fg:#2A2420; --muted:#65594F; --line:#DDD2C2;
+  --red:#A63A2B; --on-red:#fff; --brick:#C2A586; --siding:#38312C; --wood:#C08A4F;
+  --display:"Fraunces",Georgia,serif;
+  --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+}
+h1,h2,h3{font-weight:300;letter-spacing:-.015em;line-height:1.06}
+h2{font-size:clamp(2.1rem,4.4vw,3.5rem)}
+.status{font-size:.95rem;letter-spacing:.12em;text-transform:uppercase}
+.status::before{border-radius:50%}
+.btn{border-radius:999px;padding:.9em 1.7em}
+.text-link{border-bottom-color:var(--wood)}
+.text-link:hover{color:inherit;border-bottom-color:var(--red)}
+
+/* Hero: quiet, centred type over the building */
+.hero{text-align:center;padding-top:clamp(48px,8vw,112px);padding-bottom:clamp(36px,5vw,64px);display:flex;flex-direction:column;align-items:center}
+.hero h1{font-size:clamp(2.6rem,6.2vw,5.4rem);max-width:17ch;margin:22px 0}
+.lede{font-size:1.25rem;color:var(--muted);max-width:44ch;margin-bottom:30px}
+.hero .actions{justify-content:center}
+.hero-img{max-width:calc(var(--wrap) + 160px);margin:0 auto;padding:0 var(--gap)}
+.hero-img img{width:100%;aspect-ratio:16/8;object-fit:cover;border-radius:6px 6px 0 0}
+
+/* Brick course carrying the key facts */
+.brick{background-color:var(--brick);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='44'%3E%3Cpath d='M0 1h72M0 23h72M18 1v22M54 23v21' stroke='%23fff' stroke-opacity='.28' stroke-width='2' fill='none'/%3E%3C/svg%3E")}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap);padding:34px 0}
+.facts dt{font-size:.9rem;letter-spacing:.1em;text-transform:uppercase}
+.facts dd{font:400 clamp(1.5rem,2.5vw,2.1rem)/1.15 var(--display);margin-top:4px}
+
+.statement{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(28px,6vw,88px);align-items:center}
+.statement h2{font-size:clamp(2.4rem,5.2vw,4.2rem);margin-bottom:26px}
+.statement p{color:var(--muted);margin-bottom:1em;max-width:46ch}
+.pair{position:relative;padding-bottom:12%}
+.ph{background:var(--line);overflow:hidden;border-radius:6px}
+.ph img{width:100%;height:100%;object-fit:cover;aspect-ratio:5/4}
+.pair .tall{width:78%;margin-left:auto}
+.pair .tall img{aspect-ratio:4/5}
+.pair .small{position:absolute;left:0;bottom:0;width:48%;border:8px solid var(--bg);border-radius:10px}
+
+/* Lap siding band */
+.siding{margin-top:clamp(64px,9vw,128px);padding:clamp(56px,8vw,112px) 0;color:#F5EFE5;background:var(--siding) repeating-linear-gradient(to bottom,transparent 0 30px,rgba(0,0,0,.28) 30px 32px)}
+.split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(28px,6vw,88px);align-items:center}
+.split p{color:var(--muted);margin:18px 0 26px;max-width:44ch}
+.rates{margin:26px 0 30px;border-top:1px solid rgba(245,239,229,.45)}
+.rates div{padding:18px 0;border-bottom:1px solid rgba(245,239,229,.25)}
+.rates dt{font:300 1.7rem var(--display)}
+.rates dd{font-size:1.05rem;margin-top:2px}
+.rates dd span{opacity:.8}
+.rates dd span::after{content:" ·"}
+
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);border-top:1px solid var(--fg);padding-top:28px;text-align:center}
+.team dt{color:var(--muted);font-size:.9rem;letter-spacing:.1em;text-transform:uppercase}
+.team dd{font:300 1.6rem var(--display);margin-top:4px}
+.team a{text-decoration-color:var(--wood);text-underline-offset:5px}
+
+.cta{margin-top:clamp(64px,9vw,128px);background:#EADFCF;padding:clamp(56px,8vw,110px) 0;text-align:center}
+.cta .wrap{display:flex;flex-direction:column;align-items:center;gap:28px}
+.cta h2{font-size:clamp(2.4rem,5.4vw,4.4rem)}
+.cta p{color:var(--muted);margin-top:10px}
+.btn-cta{background:var(--fg);color:var(--bg)}
+footer{border-top:0}
+
+@media (max-width:860px){
+  .hero-img{padding:0}
+  .hero-img img{aspect-ratio:4/3;border-radius:0}
+  .facts{grid-template-columns:repeat(2,1fr);gap:22px 16px;padding:26px 0}
+  .statement,.split{grid-template-columns:1fr}
+  .split.flip .ph,.siding .ph{order:-1}
+  .team{grid-template-columns:1fr;gap:18px}
+}
