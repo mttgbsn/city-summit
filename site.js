@@ -46,27 +46,28 @@ onScroll();
 const floorsEl = document.getElementById("floors");
 if (floorsEl) {
   const FLOORS = {
-    1: { plate: "level-1.webp", units: [
+    1: { plate: "web/level-1.webp", units: [
       ["A1",0,1,"432–450",259200],["A1.1",0,1,"520",312000],["B1",1,1,"578–588",349500],
       ["B1.1",1,1,"575–603",345000],["B1.2",1,1,"602",361200],["B3",1,1,"759–765",455400],
       ["C1",2,2,"954–962",572400],["C2",2,2,"1,070–1,101",642000],["C2.1",2,2,"1,157–1,160",694200]]},
-    2: { plate: "level-2jpg.jpg", units: [
+    2: { plate: "web/level-2jpg.webp", units: [
       ["B1",1,1,"578–589",349500],["B1.1",1,1,"575–603",345000],["B2",1,1,"720–725",432000],
       ["B3",1,1,"759–765",455400],["C1",2,2,"954–962",572400],["C1.1",2,2,"823–825",493800],
       ["C2",2,2,"1,070–1,101",642000],["C2.1",2,2,"1,156–1,160",694200]]},
-    3: { plate: "level-3.jpg", units: [
+    3: { plate: "web/level-3.webp", units: [
       ["B1",1,1,"578–588",349500],["B1.1",1,1,"575–603",345000],["B2",1,1,"720–725",432000],
       ["B3",1,1,"759–765",455400],["C1",2,2,"954–962",572400],["C1.2",2,2,"821",492600],
       ["C2",2,2,"1,070–1,101",642000],["C2.1",2,2,"1,157–1,160",694200]]},
-    4: { plate: "level-4.jpg", units: [
+    4: { plate: "web/level-4.webp", units: [
       ["B1",1,1,"578–589",349500],["B1.1",1,1,"575–603",345000],["B2",1,1,"720–725",432000],
       ["B3",1,1,"759–765",455400],["C1",2,2,"954–962",572400],["C1.1",2,2,"823–825",493800],
       ["C2",2,2,"1,070–1,101",642000],["C2.1",2,2,"1,156–1,160",694200]]},
-    5: { plate: "level-5.jpg", units: [
+    5: { plate: "web/level-5.webp", units: [
       ["B1",1,1,"578–589",349500],["B1.1",1,1,"575–603",345000],["B2",1,1,"720–725",432000],
       ["B3",1,1,"759–765",455400],["C1",2,2,"954–962",572400],["C1.1",2,2,"823–825",493800],
       ["C2",2,2,"1,070–1,101",642000],["C2.1",2,2,"1,156–1,160",694200]]}
   };
+  const PLAN_IMG = {"A1":"a1-md105.webp","A1.1":"a1.1-md106.webp","B1":"b1-md107.webp","B1.1":"b1.1-md108.webp","B1.2":"b1.2-md109.webp","B2":"b2-md110.webp","B3":"b3-md111.webp","C1":"c1-md112.webp","C1.1":"c1.1-md113.webp","C1.2":"c1.2-md114.webp","C2":"c2-md115.webp","C2.1":"c2.1-md116.webp"};
   let floor = 1, bed = "all";
   const renderUnits = () => {
     floorsEl.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.floor === floor)));
@@ -87,7 +88,9 @@ if (floorsEl) {
         "<td class='meta'>" + u[2] + "<span class='mob'> bath</span></td>" +
         "<td class='meta'>" + u[3] + " SF</td>" +
         "<td class='price'>" + money(u[4]) + "</td>" +
-        "<td><a class='link-btn' href='" + q + "'>Ask about this plan</a></td>";
+        "<td>" + (PLAN_IMG[u[0]] ? "<button type='button' class='link-btn plan-btn'>View plan</button>" : "") + "<a class='link-btn' href='" + q + "'>Ask about this plan</a></td>";
+      const pb = tr.querySelector(".plan-btn");
+      if (pb) pb.addEventListener("click", () => { lbImg.src = CDN + PLAN_IMG[u[0]]; lbImg.alt = "Floor plan for Unit " + u[0]; lb.showModal(); track("view_plan", { plan: u[0], floor: floor }); });
       tr.querySelector("a").addEventListener("click", () => track("plan_inquiry_click", { plan: u[0], floor: floor }));
       rows.appendChild(tr);
     });
@@ -114,7 +117,7 @@ if (floorsEl) {
 const tabsEl = document.getElementById("tabs");
 if (tabsEl) {
   const HOOD = [
-    { name: "Food", img: "pexels-vlada-karpovich-6947298.avif", alt: "A stack of pancakes topped with blueberries", places: [
+    { name: "Food", img: "web/pexels-vlada-karpovich-6947298.webp", alt: "A stack of pancakes topped with blueberries", places: [
       ["French Market Crêperie","412 Clinch Avenue","Sweet and savory crêpes and espresso.","https://www.thefrenchmarketknoxville.com/"],
       ["Stock & Barrel","35 Market Square","Burgers and a deep bourbon list.","https://thestockandbarrel.com"],
       ["Tupelo Honey","1 Market Square","Southern comfort food, all day.","https://tupelohoneycafe.com"],
@@ -129,7 +132,7 @@ if (tabsEl) {
       ["Soccer Taco","9 Market Square","Mexican food with the match always on.","https://soccertaco.com"],
       ["Chivo Taqueria","314 S Gay Street","Tacos, tequila and award-winning margaritas.","https://chivotaqueria.com"],
       ["Nama Sushi Bar","506 S Gay Street","A longtime Knoxville favorite for sushi.","https://namasushibar.com"]]},
-    { name: "Breweries", img: "olivia-bauso-jg2a11wrkby-unsplash.avif", alt: "A flight of drinks on a bar", places: [
+    { name: "Breweries", img: "web/olivia-bauso-jg2a11wrkby-unsplash.webp", alt: "A flight of drinks on a bar", places: [
       ["Balter Beerworks","100 S Broadway","Scratch kitchen and brewery in a converted service station.","https://balterbeerworks.com"],
       ["Pretentious Beer Co.","131 S Central Street","Experimental beer served in glassware blown in-house.","https://pretentiousbeerco.com"],
       ["Downtown Grill & Brewery","424 S Gay Street","Beer brewed on site, plus steaks and pub classics.","http://www.downtownbrewery.com/"],
@@ -142,27 +145,27 @@ if (tabsEl) {
       ["Market Square","402 Walnut Street","Shops, restaurants, concerts, festivals and the farmers’ market.","https://downtownknoxville.org"],
       ["Dogwood Arts","123 W Jackson Avenue","Year-round arts events and the spring festival, since 1955.","https://dogwoodarts.com"],
       ["World’s Fair Park","963 World’s Fair Park Drive","The Sunsphere, the amphitheater and a wide performance lawn.","https://www.worldsfairpark.org/"]]},
-    { name: "Work & study", img: "shridhar-gupta-dzxqn4vev2m-unsplash.avif", alt: "People working at desks under string lights", places: [
+    { name: "Work & study", img: "web/shridhar-gupta-dzxqn4vev2m-unsplash.webp", alt: "People working at desks under string lights", places: [
       ["Old City Java","109 S Central Street","Neighborhood coffee shop, pouring since 1991.","https://www.facebook.com/oldcityjava"],
       ["CoKno","129 S Gay Street","Coworking for freelancers, writers and founders.","https://cokno.org"],
       ["Lawson McGhee Library","500 W Church Avenue","Knoxville’s main public library.","https://knoxcountylibrary.com"],
       ["Maker Exchange","710 Clinch Avenue","Coffee, a bar and a shop featuring local makers.","https://www.makerexchangeknox.com/"],
       ["Awaken Coffee","125 W Jackson Avenue","Espresso, pour-overs and house-made pastries.","https://www.downtownknoxville.org/awaken-coffee/"]]},
-    { name: "Trails & parks", img: "riverwalk-1200-900.webp", alt: "A walkway in downtown Knoxville", places: [
+    { name: "Trails & parks", img: "web/riverwalk-1200-900.webp", alt: "A walkway in downtown Knoxville", places: [
       ["Volunteer Landing","400 Neyland Drive","Riverfront park with walking paths along the Tennessee River.","https://www.knoxvilletn.gov/government/city_departments_offices/parks_and_recreation/parks/volunteer_landing_park"],
       ["World’s Fair Park","963 World’s Fair Park Drive","Open lawns around the Sunsphere.","https://worldsfairpark.org"],
       ["Neyland Greenway","2401 Neyland Drive","Paved riverside trail from downtown to the UT campus.","https://www.knoxvilletn.gov/government/city_departments_offices/parks_and_recreation/greenways_trails/neyland_greenway"],
       ["James White Greenway","1640 Riverside Drive","Quiet riverside path for walking, running and biking.","https://www.knoxvilletn.gov/government/city_departments_offices/parks_and_recreation/greenways_trails/james_white_greenway"],
       ["Urban Wilderness","1515 Tilson Street","Miles of forest trails minutes from downtown.","https://legacyparks.org/"],
       ["Sequoyah Hills Park","1400 Cherokee Boulevard","Fields, a riverfront trail and water access.","https://www.knoxvilletn.gov/government/city_departments_offices/parks_and_recreation/parks/sequoyah_park"]]},
-    { name: "Fitness", img: "samuel-girven-vj2s0c20qco-unsplash.avif", alt: "Close-up of a weight rack", places: [
+    { name: "Fitness", img: "web/samuel-girven-vj2s0c20qco-unsplash.webp", alt: "Close-up of a weight rack", places: [
       ["Lindsay Young Downtown YMCA","605 Clinch Avenue","Gym, classes and community programs.","https://ymcaetn.org"],
       ["Old City Athletic Club","124 W Jackson Avenue","Full-service gym in the Old City.","https://oldcityathleticclub.com"],
       ["Fitness Studio 111","111 N Central Street","Private and semi-private personal training.","https://fitnessstudio111.com"],
       ["Forté Fitness","1060 World’s Fair Park Drive","Strength training, coaching and group classes.","https://fortefitnesstn.com"],
       ["Yoga Central","213 E 5th Avenue","Yoga classes for every level.","https://myyogacentral.com"],
       ["Eddie’s Health Shoppe","455 Union Avenue","Locally owned vitamins and supplements.","https://eddieshealthshoppe.com"]]},
-    { name: "Nightlife", img: "tn-sign-1200-900.webp", alt: "Downtown Knoxville at night", places: [
+    { name: "Nightlife", img: "web/tn-sign-1200-900.webp", alt: "Downtown Knoxville at night", places: [
       ["Five Thirty Lounge","530 S Gay Street","Rooftop bar with skyline and mountain views.","https://www.fivethirtylounge.com/"],
       ["Peter Kern Library","407 Union Avenue","Speakeasy tucked behind the Oliver Hotel lobby.","https://theoliverhotel.com"],
       ["Preservation Pub","28 Market Square","Live music and a rooftop on Market Square.","https://scruffycity.com/preservation-pub/"],
@@ -171,11 +174,11 @@ if (tabsEl) {
       ["Radius Rooftop","507 S Gay Street","Cocktails and small plates above Gay Street.","https://www.radiusrooftopbar.com/"],
       ["The Vault","531 S Gay Street","Cocktail lounge in a former bank vault.","https://www.thevaultknoxville.com/"],
       ["Knox Box Karaoke","522 S Gay Street","Private karaoke rooms and a full bar.","https://knoxboxkaraoke.com"]]},
-    { name: "Groceries", img: "farmers-market-1200-900.webp", alt: "A box of fresh produce", places: [
+    { name: "Groceries", img: "web/farmers-market-1200-900.webp", alt: "A box of fresh produce", places: [
       ["Red Panda Grocery","123 S Central Street","Asian and international groceries in the Old City.","https://redpandagrocery.com"],
       ["Market Square Farmers’ Market","402 Walnut Street","Seasonal market with local growers and makers.","https://downtownknoxville.org"],
       ["Three Rivers Market","1100 N Central Street","Community co-op with local produce and specialty goods.","https://www.threeriversmarket.coop/"]]},
-    { name: "Pets", img: "worlds-fair-park-1200-900.webp", alt: "World’s Fair Park lawn", places: [
+    { name: "Pets", img: "web/worlds-fair-park-1200-900.webp", alt: "World’s Fair Park lawn", places: [
       ["PetSafe Downtown Dog Park","200 S Central Street","Fenced, off-leash park a short walk away.",""],
       ["The Bark","601 Lamar Street","Indoor and outdoor dog park with daycare and a beer garden.","https://thebarkknoxville.com/"],
       ["Downtown Knoxville Veterinary","27 Emory Place","Full-service clinic for dogs and cats.","https://downtownknoxvet.com/"],

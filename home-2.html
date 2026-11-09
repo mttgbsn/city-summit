@@ -10,6 +10,8 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://www.citysummitknoxville.com/images/front-a1-enhanced.webp">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://www.citysummitknoxville.com/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,15 +47,15 @@
 
 <main id="main">
 <div class="hero wrap">
-  <p class="status">Now selling</p>
+  <p class="status">Now selling · Construction complete</p>
   <h1>Elevated living at downtown Knoxville’s highest point</h1>
   <p class="lede">New condos on Summit Hill, a short walk from Market Square, Gay Street and the Old City.</p>
   <div class="actions">
-      <a class="btn btn-solid" href="contact.html">Schedule a tour</a>
+      <a class="btn btn-solid" href="#tour">Schedule a tour</a>
       <a class="btn" href="residences.html">See floor plans</a>
     </div>
 </div>
-<div class="hero-img"><img fetchpriority="high" src="images/front-a1-enhanced.webp" alt="The City Summit building on Summit Hill"></div>
+<div class="hero-img"><img fetchpriority="high" src="images/web/front-a1-enhanced.webp" alt="The City Summit building on Summit Hill"></div>
 <div class="brick">
   <div class="wrap">
   <dl class="facts">
@@ -73,8 +75,8 @@
         <p>Construction is complete. Homes are ready to tour and ready to own.</p>
     </div>
     <div class="pair">
-      <div class="ph tall"><img loading="lazy" src="images/129-5th-deck-a3.webp" alt="The view from a fifth-floor balcony"></div>
-      <div class="ph small"><img loading="lazy" src="images/056-3-living-a1.webp" alt="Living room with a balcony door and city views"></div>
+      <div class="ph tall"><img loading="lazy" src="images/web/129-5th-deck-a3.webp" alt="The view from a fifth-floor balcony"></div>
+      <div class="ph small"><img loading="lazy" src="images/web/056-3-living-a1.webp" alt="Living room with a balcony door and city views"></div>
     </div>
   </div>
 </section>
@@ -90,7 +92,7 @@
       </dl>
       <a class="text-link" href="residences.html">See every floor plan</a>
     </div>
-    <div class="ph"><img loading="lazy" src="images/111-5-kitchen-a1.webp" alt="Kitchen with wood cabinets and stainless appliances"></div>
+    <div class="ph"><img loading="lazy" src="images/web/111-5-kitchen-a1.webp" alt="Kitchen with wood cabinets and stainless appliances"></div>
   </div>
 </div>
 
@@ -112,7 +114,7 @@
       <p>Double walls between homes and extra insulation between floors keep the city outside. Inside: quartz counters, nine-foot ceilings, and a washer and dryer in every home.</p>
       <a class="text-link" href="gallery.html">View the gallery</a>
     </div>
-    <div class="ph"><img loading="lazy" src="images/132-6-kitchen-a1.webp" alt="Kitchen with light wood cabinets and stainless appliances"></div>
+    <div class="ph"><img loading="lazy" src="images/web/132-6-kitchen-a1.webp" alt="Kitchen with light wood cabinets and stainless appliances"></div>
   </div>
 </section>
 
@@ -126,10 +128,41 @@
   </div>
 </section>
 
-<div class="cta">
+<section id="questions">
+  <div class="wrap qa">
+    <div>
+      <h2>Questions buyers ask</h2>
+      <a class="text-link" href="about.html#faq">Read all the answers</a>
+    </div>
+    <div class="faq">
+      <details><summary>Are condos available now?</summary><p>Yes. Studio, one-bedroom and two-bedroom homes are available to buy today. Availability changes as homes sell, so contact us for current inventory and pricing.</p></details>
+      <details><summary>What are the HOA fees, and what do they cover?</summary><p>Dues range from $132 to $370 per month in the first year, depending on the size of the home. They cover water, trash, inspections, preventative maintenance, annual testing, repairs and day-to-day management of the building.</p></details>
+      <details><summary>What parking is available?</summary><p>An on-site lot is managed by the HOA, which will decide whether spaces are first-come, first-served or leased to owners. A second lot across Cafego Place offers monthly parking through ParkTenn. Together they provide nearly one space per home. Guests can use nearby street parking, garages and public lots.</p></details>
+      <details><summary>Is financing available?</summary><p>City Summit doesn’t offer in-house financing, but we can recommend trusted local lenders who finance downtown Knoxville condos.</p></details>
+    </div>
+  </div>
+</section>
+
+<div class="cta" id="tour">
   <div class="wrap">
-    <div><h2>Come see it in person</h2><p>Ask about availability and pricing, or book a time to walk through.</p></div>
-    <div class="actions"><a class="btn btn-cta" href="contact.html">Schedule a tour</a><a class="btn btn-cta-ghost" href="https://www.zillow.com/community/city-summit/32254492_plid/" target="_blank" rel="noopener">View on Zillow</a></div>
+    <div>
+      <h2>Come see it in person</h2>
+      <p>Ask about availability and pricing, or book a time to walk through.</p>
+      <p class="cta-links"><a href="https://www.google.com/maps/dir//515+Cafego+Pl,+Knoxville,+TN+37902" target="_blank" rel="noopener">515 Cafego Place, Knoxville, TN 37902</a><a href="https://www.zillow.com/community/city-summit/32254492_plid/" target="_blank" rel="noopener">View on Zillow</a></p>
+    </div>
+    <form id="contactForm" action="https://formsubmit.co/rgibson@lawlerwood.com" method="POST">
+      <input type="hidden" name="_subject" value="City Summit website inquiry">
+      <input type="hidden" name="_template" value="table">
+      <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label>Name<input type="text" name="name" autocomplete="name" required></label>
+      <div class="row">
+        <label>Email address<input type="email" name="email" autocomplete="email" required></label>
+        <label>Phone number<input type="tel" name="phone" autocomplete="tel"></label>
+      </div>
+      <label>Message<textarea name="message" id="message" required></textarea></label>
+      <div><button class="btn btn-solid" type="submit" id="sendBtn">Send message</button></div>
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
   </div>
 </div>
 </main>

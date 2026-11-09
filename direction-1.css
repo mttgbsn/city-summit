@@ -62,12 +62,14 @@ h2{font-size:clamp(2.4rem,5.4vw,4.4rem)}
 .team a{text-decoration-color:var(--red);text-underline-offset:5px}
 
 .cta{margin-top:clamp(64px,9vw,128px);background:var(--red);color:#fff;padding:clamp(56px,8vw,110px) 0}
-.cta .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}
 .cta h2{font-size:clamp(2.6rem,6vw,5rem)}
 .cta p{margin-top:8px}
-.btn-cta{background:#fff;border-color:#fff;color:var(--char)}
-.btn-cta-ghost{border-color:#fff;color:#fff}
-.cta .btn:hover{background:var(--char);border-color:var(--char);color:#fff}
+.cta{--focus:#fff}
+.cta input,.cta textarea{border-color:#fff}
+.cta form .btn{background:#fff;border-color:#fff;color:var(--char)}
+.cta form .btn:hover{background:var(--char);border-color:var(--char);color:#fff}
+.faq summary{font:600 1.5rem var(--display);text-transform:uppercase;letter-spacing:.02em}
+.faq{border-top-width:2px}
 footer{border-top:0}
 
 @media (max-width:860px){
