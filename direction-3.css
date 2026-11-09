@@ -86,6 +86,12 @@ h2{font-size:clamp(2rem,4.4vw,3.4rem)}
 .cta form .btn{background:var(--bg);border-color:var(--bg);color:var(--fg)}
 .cta form .btn:hover{background:#0E6E66;border-color:#0E6E66;color:#fff}
 .faq summary{font-weight:400}
+.plan{background:var(--panel)}
+.plan h3{font-weight:400;font-size:1.5rem}
+.plan .size,.plan-links span,.spec strong{font-family:var(--mono);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase}
+.plan .from{font:400 .82rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.plan .from strong{font:300 2.6rem/1.05 var(--display);letter-spacing:-.03em;text-transform:none;color:var(--glass)}
+.spec strong{color:var(--glass);margin-bottom:4px}
 footer{border-top:0}
 .stickybar .btn{white-space:nowrap;font-size:.8rem;background:var(--glass);border-color:var(--glass);color:var(--bg)}
 

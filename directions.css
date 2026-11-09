@@ -4,7 +4,7 @@
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-padding-top:72px}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
-img{display:block;max-width:100%}
+img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 h1,h2,h3,p,dl,dd,ol,ul{margin:0;padding:0}
 ol,ul{list-style:none}
@@ -83,6 +83,38 @@ dialog::backdrop{background:rgba(8,14,19,.88)}
   .dirs a{padding:9px 8px}
   .dirs i{display:inline}
 }
+/* Section heading row */
+.sec-row{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px;margin-bottom:28px}
+.sec-lede{color:var(--muted);max-width:62ch;margin:-8px 0 28px}
+
+/* Residences: one real plan per home type */
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,32px)}
+.plan{display:flex;flex-direction:column;border:1px solid var(--line)}
+.plan-img{display:block;width:100%;padding:0;border:0;border-bottom:1px solid var(--line);background:#fff;cursor:zoom-in}
+.plan-img img{width:100%;aspect-ratio:4/3;object-fit:contain;padding:14px}
+.plan-body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
+.plan h3{font-size:1.6rem}
+.plan .size{color:var(--muted)}
+.plan .from{margin:14px 0 18px}
+.plan .from strong{display:block;font:500 2.4rem/1.05 var(--display)}
+.plan-links{margin-top:auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 16px;font-size:.95rem}
+.plan-links span{color:var(--muted)}
+
+/* Inside the homes: photos first, then what every home includes */
+.strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.strip button{padding:0;border:0;background:var(--line);overflow:hidden;cursor:zoom-in;aspect-ratio:1}
+.strip button:first-child{grid-column:span 2;grid-row:span 2}
+.strip img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.strip button:hover img{transform:scale(1.03)}
+.spec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 var(--gap);margin-top:28px;border-top:1px solid var(--fg)}
+.spec li{padding:14px 0;border-bottom:1px solid var(--line)}
+.spec strong{display:block;font-weight:600}
+.spec span{color:var(--muted);font-size:.98rem}
+dialog img{max-width:100%;max-height:86vh;margin:0 auto;background:#fff}
+dialog form{display:block;text-align:right;margin-bottom:10px}
+dialog button{font:500 .95rem system-ui,sans-serif;background:#fff;color:#111;border:0;padding:.5em 1em;cursor:pointer}
+@media (max-width:860px){.plans,.spec{grid-template-columns:1fr}.strip{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
 /* Questions buyers ask */
 .qa{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--gap);align-items:start}
 .qa h2{margin-bottom:22px}

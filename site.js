@@ -25,7 +25,7 @@ const money = n => "$" + n.toLocaleString("en-US");
 
 /* Lightbox (any button marked data-zoom) */
 const lb = document.getElementById("lightbox"), lbImg = document.getElementById("lightboxImg");
-function openLightbox(img) { lbImg.src = img.src; lbImg.alt = img.alt; lb.showModal(); }
+function openLightbox(img) { lbImg.src = img.dataset.full || img.src; lbImg.alt = img.alt; lb.showModal(); }
 document.querySelectorAll("[data-zoom]").forEach(b => b.addEventListener("click", () => openLightbox(b.querySelector("img"))));
 lb.addEventListener("click", e => { if (e.target === lb) lb.close(); });
 

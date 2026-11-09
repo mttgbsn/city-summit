@@ -24,7 +24,7 @@
 
 <header class="site-header" id="siteHeader">
   <div class="wrap">
-    <a class="brand" href="index.html" aria-label="City Summit home"><svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 -40 985.6 140" role="img" aria-label="City Summit"><defs><clipPath id="hmm"><rect x="583.7889777187945" y="0" width="292" height="100"/><rect x="668.1889777187945" y="-120" width="54" height="121"/></clipPath><clipPath id="htip"><rect x="666.1889777187945" y="-120" width="58" height="120"/></clipPath><clipPath id="hcap"><rect x="-20" y="0" width="1025.5889777187945" height="100"/></clipPath></defs><path d="M84.09,21.40 A44.5,44.5 0 1 0 84.09,78.60" fill="none" stroke="currentColor" stroke-width="11" />
+    <a class="brand" href="home-1.html" aria-label="City Summit home"><svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 -40 985.6 140" role="img" aria-label="City Summit"><defs><clipPath id="hmm"><rect x="583.7889777187945" y="0" width="292" height="100"/><rect x="668.1889777187945" y="-120" width="54" height="121"/></clipPath><clipPath id="htip"><rect x="666.1889777187945" y="-120" width="58" height="120"/></clipPath><clipPath id="hcap"><rect x="-20" y="0" width="1025.5889777187945" height="100"/></clipPath></defs><path d="M84.09,21.40 A44.5,44.5 0 1 0 84.09,78.60" fill="none" stroke="currentColor" stroke-width="11" />
 <path d="M124.08897771879452,0 V100" fill="none" stroke="currentColor" stroke-width="11" />
 <path d="M161.58897771879452,5.5 H227.58897771879452 M194.58897771879452,5.5 V100" fill="none" stroke="currentColor" stroke-width="11" />
 <path d="M263.43897771879455,-8 L295.5889777187945,54 L327.7389777187945,-8 M295.5889777187945,50 V100" fill="none" stroke="currentColor" stroke-width="11" clip-path="url(#hcap)"/>
@@ -40,7 +40,7 @@
       <a href="neighborhood.html">Neighborhood</a>
       <a href="about.html">About</a>
       <a href="gallery.html">Gallery</a>
-      <a class="btn btn-solid" href="contact.html">Schedule a tour</a>
+      <a class="btn btn-solid" href="#tour">Schedule a tour</a>
     </nav>
   </div>
 </header>
@@ -55,11 +55,11 @@
       <p class="lede">New condos on Summit Hill, a short walk from Market Square, Gay Street and the Old City.</p>
       <div class="actions">
       <a class="btn btn-solid" href="#tour">Schedule a tour</a>
-      <a class="btn" href="residences.html">See floor plans</a>
+      <a class="btn" href="#plans">See floor plans</a>
     </div>
     </div>
   </div>
-  <div class="portal"><img fetchpriority="high" src="images/web/front-a2-enhanced.webp" alt="The City Summit building on Summit Hill"></div>
+  <div class="portal"><img fetchpriority="high" src="images/web/front-a2-s.webp" srcset="images/web/front-a2-s.webp 1200w, images/web/front-a2-l.webp 2400w" sizes="(max-width:860px) 100vw, 55vw" width="1200" height="682" data-full="images/web/front-a2-l.webp" alt="The City Summit building on Summit Hill"></div>
 </div>
 <div class="wrap">
   <dl class="facts">
@@ -78,38 +78,74 @@
         <p>Construction is complete. Homes are ready to tour and ready to own.</p>
     </div>
   </div>
-  <div class="wrap"><div class="framed wide"><img loading="lazy" src="images/web/107-4th-deck-a2.webp" alt="The view from a fourth-floor balcony"></div></div>
+  <div class="wrap"><div class="framed wide"><img loading="lazy" src="images/web/107-4th-deck-a2-s.webp" srcset="images/web/107-4th-deck-a2-s.webp 1200w, images/web/107-4th-deck-a2-l.webp 2400w" sizes="100vw" width="1200" height="802" data-full="images/web/107-4th-deck-a2-l.webp" alt="The view from a fourth-floor balcony"></div></div>
 </section>
 
-<section>
+<section id="plans">
   <div class="wrap">
     <div class="sec-row"><h2>Residences</h2><a class="text-link" href="residences.html">See every floor plan</a></div>
-    <div class="panels">
-      <a class="panel" href="residences.html"><h3>Studios</h3><p class="size">432 to 520 SF</p><p class="from">from <strong>$259,200</strong></p></a>
-      <a class="panel" href="residences.html"><h3>One bedroom</h3><p class="size">575 to 765 SF</p><p class="from">from <strong>$345,000</strong></p></a>
-      <a class="panel" href="residences.html"><h3>Two bedroom</h3><p class="size">821 to 1,160 SF</p><p class="from">from <strong>$492,600</strong></p></a>
+    <div class="plans">
+      <article class="plan">
+        <button type="button" class="plan-img" data-zoom aria-label="Enlarge the Unit A1 floor plan"><img loading="lazy" src="images/web/a1-md105-square-s.webp" srcset="images/web/a1-md105-square-s.webp 1200w, images/web/a1-md105-square-l.webp 1766w" sizes="(max-width:860px) 100vw, 33vw" width="1200" height="1200" data-full="images/web/a1-md105-square-l.webp" alt="Floor plan for Unit A1"></button>
+        <div class="plan-body">
+          <h3>Studios</h3>
+          <p class="size">432 to 520 SF</p>
+          <p class="from">from <strong>$259,200</strong></p>
+          <p class="plan-links"><span>Plan shown: Unit A1</span><a class="text-link" href="contact.html?plan=A1&amp;floor=1">Ask about this plan</a></p>
+        </div>
+      </article>
+      <article class="plan">
+        <button type="button" class="plan-img" data-zoom aria-label="Enlarge the Unit B1.1 floor plan"><img loading="lazy" src="images/web/b1.1-md108-square-s.webp" srcset="images/web/b1.1-md108-square-s.webp 1200w, images/web/b1.1-md108-square-l.webp 1771w" sizes="(max-width:860px) 100vw, 33vw" width="1200" height="1200" data-full="images/web/b1.1-md108-square-l.webp" alt="Floor plan for Unit B1.1"></button>
+        <div class="plan-body">
+          <h3>One bedroom</h3>
+          <p class="size">575 to 765 SF</p>
+          <p class="from">from <strong>$345,000</strong></p>
+          <p class="plan-links"><span>Plan shown: Unit B1.1</span><a class="text-link" href="contact.html?plan=B1.1&amp;floor=1">Ask about this plan</a></p>
+        </div>
+      </article>
+      <article class="plan">
+        <button type="button" class="plan-img" data-zoom aria-label="Enlarge the Unit C1.2 floor plan"><img loading="lazy" src="images/web/c1.2-md114-square-s.webp" srcset="images/web/c1.2-md114-square-s.webp 1200w, images/web/c1.2-md114-square-l.webp 1936w" sizes="(max-width:860px) 100vw, 33vw" width="1200" height="1200" data-full="images/web/c1.2-md114-square-l.webp" alt="Floor plan for Unit C1.2"></button>
+        <div class="plan-body">
+          <h3>Two bedroom</h3>
+          <p class="size">821 to 1,160 SF</p>
+          <p class="from">from <strong>$492,600</strong></p>
+          <p class="plan-links"><span>Plan shown: Unit C1.2</span><a class="text-link" href="contact.html?plan=C1.2&amp;floor=3">Ask about this plan</a></p>
+        </div>
+      </article>
     </div>
+  </div>
+</section>
+
+<section class="inside-sec" id="inside">
+  <div class="wrap">
+    <div class="sec-row"><h2>Built quieter, finished better</h2><a class="text-link" href="gallery.html">View the gallery</a></div>
+    <p class="sec-lede">Double walls between homes and extra insulation between floors keep the city outside. Inside: quartz counters, nine-foot ceilings, and a washer and dryer in every home.</p>
+    <div class="strip">
+      <button type="button" data-zoom aria-label="Enlarge photo"><img loading="lazy" src="images/web/132-6-kitchen-a1-s.webp" srcset="images/web/132-6-kitchen-a1-s.webp 1200w, images/web/132-6-kitchen-a1-l.webp 2000w" sizes="(max-width:860px) 100vw, 55vw" width="1200" height="1200" data-full="images/web/132-6-kitchen-a1-l.webp" alt="Kitchen with light wood cabinets and stainless appliances"></button>
+      <button type="button" data-zoom aria-label="Enlarge photo"><img loading="lazy" src="images/web/056-3-living-a1-s.webp" srcset="images/web/056-3-living-a1-s.webp 1200w, images/web/056-3-living-a1-l.webp 2000w" sizes="(max-width:860px) 50vw, 25vw" width="1200" height="1200" data-full="images/web/056-3-living-a1-l.webp" alt="Living room with wood floors, a balcony door and windows facing the city"></button>
+      <button type="button" data-zoom aria-label="Enlarge photo"><img loading="lazy" src="images/web/149-6-2-bath-a2-s.webp" srcset="images/web/149-6-2-bath-a2-s.webp 1200w, images/web/149-6-2-bath-a2-l.webp 2400w" sizes="(max-width:860px) 50vw, 25vw" width="1200" height="802" data-full="images/web/149-6-2-bath-a2-l.webp" alt="Bathroom with a glass-door shower"></button>
+      <button type="button" data-zoom aria-label="Enlarge photo"><img loading="lazy" src="images/web/100-4-2-bed-a1-s.webp" srcset="images/web/100-4-2-bed-a1-s.webp 1200w, images/web/100-4-2-bed-a1-l.webp 2400w" sizes="(max-width:860px) 50vw, 25vw" width="1200" height="802" data-full="images/web/100-4-2-bed-a1-l.webp" alt="Bedroom with wood flooring and a window"></button>
+      <button type="button" data-zoom aria-label="Enlarge photo"><img loading="lazy" src="images/web/129-5th-deck-a3-s.webp" srcset="images/web/129-5th-deck-a3-s.webp 1200w, images/web/129-5th-deck-a3-l.webp 2400w" sizes="(max-width:860px) 50vw, 25vw" width="1200" height="802" data-full="images/web/129-5th-deck-a3-l.webp" alt="View from a fifth-floor balcony"></button>
+    </div>
+    <ul class="spec">
+        <li><strong>Kitchens</strong><span>Quartz countertops, tile backsplash, 42-inch slow-close cabinets and a full appliance package.</span></li>
+        <li><strong>Baths</strong><span>Tiled showers with glass doors. Homes with a second full bath also have a tub.</span></li>
+        <li><strong>Laundry</strong><span>A washer and dryer in every home.</span></li>
+        <li><strong>Rooms</strong><span>Nine-foot ceilings, ceiling fans, walk-in closets and a window in every bedroom.</span></li>
+        <li><strong>Finishes</strong><span>Three finish schemes to choose from across the building.</span></li>
+        <li><strong>Building</strong><span>Two elevators, on-site parking, and more parking for lease across Cafego Place.</span></li>
+        <li><strong>Views</strong><span>The Sunsphere, Sharp’s Ridge, House Mountain and the downtown skyline.</span></li>
+      </ul>
   </div>
 </section>
 
 <section>
   <div class="wrap split">
-    <div class="framed"><img loading="lazy" src="images/market-square.avif" alt="People gathered in Market Square"></div>
+    <div class="framed"><img loading="lazy" src="images/web/marked-map-a5-s.webp" srcset="images/web/marked-map-a5-s.webp 1200w, images/web/marked-map-a5-l.webp 2400w" sizes="(max-width:860px) 100vw, 55vw" width="1200" height="802" data-full="images/web/marked-map-a5-l.webp" alt="Aerial view of downtown Knoxville with City Summit, Market Square and Gay Street marked"></div>
     <div>
       <h2>A block from everything</h2>
       <p>Dinner on Market Square, a show in the Old City, a run along the river. Most of downtown is a walk from your front door.</p>
       <a class="text-link" href="neighborhood.html">Explore the neighborhood</a>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap split flip">
-    <div class="framed"><img loading="lazy" src="images/web/132-6-kitchen-a1.webp" alt="Kitchen with light wood cabinets and stainless appliances"></div>
-    <div>
-      <h2>Built quieter, finished better</h2>
-      <p>Double walls between homes and extra insulation between floors keep the city outside. Inside: quartz counters, nine-foot ceilings, and a washer and dryer in every home.</p>
-      <a class="text-link" href="gallery.html">View the gallery</a>
     </div>
   </div>
 </section>
@@ -167,7 +203,7 @@
   <div class="wrap">
     <div class="foot">
       <div>
-        <a class="brand" href="index.html" aria-label="City Summit home"><svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 -40 985.6 140" role="img" aria-label="City Summit"><defs><clipPath id="fmm"><rect x="583.7889777187945" y="0" width="292" height="100"/><rect x="668.1889777187945" y="-120" width="54" height="121"/></clipPath><clipPath id="ftip"><rect x="666.1889777187945" y="-120" width="58" height="120"/></clipPath><clipPath id="fcap"><rect x="-20" y="0" width="1025.5889777187945" height="100"/></clipPath></defs><path d="M84.09,21.40 A44.5,44.5 0 1 0 84.09,78.60" fill="none" stroke="currentColor" stroke-width="11" />
+        <a class="brand" href="home-1.html" aria-label="City Summit home"><svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 -40 985.6 140" role="img" aria-label="City Summit"><defs><clipPath id="fmm"><rect x="583.7889777187945" y="0" width="292" height="100"/><rect x="668.1889777187945" y="-120" width="54" height="121"/></clipPath><clipPath id="ftip"><rect x="666.1889777187945" y="-120" width="58" height="120"/></clipPath><clipPath id="fcap"><rect x="-20" y="0" width="1025.5889777187945" height="100"/></clipPath></defs><path d="M84.09,21.40 A44.5,44.5 0 1 0 84.09,78.60" fill="none" stroke="currentColor" stroke-width="11" />
 <path d="M124.08897771879452,0 V100" fill="none" stroke="currentColor" stroke-width="11" />
 <path d="M161.58897771879452,5.5 H227.58897771879452 M194.58897771879452,5.5 V100" fill="none" stroke="currentColor" stroke-width="11" />
 <path d="M263.43897771879455,-8 L295.5889777187945,54 L327.7389777187945,-8 M295.5889777187945,50 V100" fill="none" stroke="currentColor" stroke-width="11" clip-path="url(#fcap)"/>
@@ -194,8 +230,8 @@
     </div>
   </div>
 </footer>
-<div class="stickybar"><span>Condos from <strong>$259,200</strong></span><a class="btn btn-solid" href="contact.html">Schedule a tour</a></div>
-<nav class="dirs" aria-label="Compare style directions"><span>Compare</span><a href="home-1.html" aria-current="page"><b>1</b><i> Red Frame</i></a><a href="home-2.html"><b>2</b><i> Brick &amp; Timber</i></a><a href="home-3.html"><b>3</b><i> Elevation</i></a><a href="index.html"><b>C</b><i> Current</i></a></nav>
+<div class="stickybar"><span>Condos from <strong>$259,200</strong></span><a class="btn btn-solid" href="#tour">Schedule a tour</a></div>
+<nav class="dirs" aria-label="Compare style directions"><a href="home-1.html" aria-current="page"><b>1</b><i> Red Frame</i></a><a href="home-2.html"><b>2</b><i> Brick &amp; Timber</i></a><a href="home-3.html"><b>3</b><i> Elevation</i></a><a href="index.html"><b>&#8862;</b><i> All options</i></a></nav>
 <dialog id="lightbox" aria-label="Enlarged image">
   <form method="dialog"><button>Close</button></form>
   <img id="lightboxImg" src="" alt="">

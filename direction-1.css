@@ -70,6 +70,17 @@ h2{font-size:clamp(2.4rem,5.4vw,4.4rem)}
 .cta form .btn:hover{background:var(--char);border-color:var(--char);color:#fff}
 .faq summary{font:600 1.5rem var(--display);text-transform:uppercase;letter-spacing:.02em}
 .faq{border-top-width:2px}
+.plan{border:2px solid var(--fg);background:#fff}
+.plan-img{border-bottom:2px solid var(--fg)}
+.plan h3{font:600 1.9rem var(--display);text-transform:uppercase;letter-spacing:.02em}
+.plan .from{font:500 1rem var(--display);letter-spacing:.1em;text-transform:uppercase}
+.plan .from strong{font:600 3.2rem/1 var(--display);letter-spacing:0}
+.plan:nth-child(2) .plan-body{background:var(--char);color:#fff}
+.plan:nth-child(2) .size,.plan:nth-child(2) .plan-links span{color:#CFCFD2}
+.plan:nth-child(2) .text-link:hover{color:#fff}
+.strip button{border:0}
+.spec{border-top-width:2px}
+.spec strong{font:600 1.15rem var(--display);text-transform:uppercase;letter-spacing:.06em}
 footer{border-top:0}
 
 @media (max-width:860px){
