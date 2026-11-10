@@ -1,0 +1,15 @@
+/* Style bar: top-right switcher on every page, linking to the same page in each style. */
+:root{--sbh:36px}
+.stylebar{position:sticky;top:0;z-index:70;height:var(--sbh);background:#121518;color:#fff;font:500 13px/1 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:0;text-transform:none}
+.sb-in{max-width:1440px;height:100%;margin:0 auto;padding:0 12px;display:flex;align-items:center;justify-content:flex-end;gap:2px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.sb-in::-webkit-scrollbar{display:none}
+.sb-label{margin-right:8px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.6}
+.stylebar a{color:#fff;text-decoration:none;padding:6px 10px;border-radius:3px}
+.stylebar a:hover{background:rgba(255,255,255,.14)}
+.stylebar a[aria-current]{background:#fff;color:#121518}
+.stylebar .sb-all{margin-left:6px;border:1px solid rgba(255,255,255,.35)}
+.stylebar a:focus-visible{outline:2px solid #fff;outline-offset:1px}
+/* Keep the site header just below the bar */
+.site-header{top:var(--sbh)!important}
+html{scroll-padding-top:calc(var(--sbh) + 80px)!important}
+@media (max-width:860px){.sb-in{justify-content:flex-start}}

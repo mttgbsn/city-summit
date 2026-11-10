@@ -21,6 +21,12 @@ if (GA_MEASUREMENT_ID) {
 function track(name, params) { if (window.gtag) gtag("event", name, params || {}); }
 
 const ORD = {1:"1st",2:"2nd",3:"3rd",4:"4th",5:"5th"};
+/* Pages come in styles: residences.html (original) or residences-2.html (style 2). Keep links in the same style. */
+const STYLE_SFX = (location.pathname.match(/-([1-9]).html$/) || [])[1];
+const pageUrl = p => p + (STYLE_SFX ? "-" + STYLE_SFX : "") + ".html";
+/* Style bar: on narrow screens, scroll the current style into view */
+const sbCur = document.querySelector(".stylebar [aria-current]");
+if (sbCur) { const sb = sbCur.parentElement; sb.scrollLeft = sbCur.offsetLeft - (sb.clientWidth - sbCur.offsetWidth) / 2; }
 const money = n => "$" + n.toLocaleString("en-US");
 
 /* Lightbox (any button marked data-zoom) */
@@ -81,7 +87,7 @@ if (floorsEl) {
     rows.innerHTML = "";
     list.forEach(u => {
       const tr = document.createElement("tr");
-      const q = "contact.html?plan=" + encodeURIComponent(u[0]) + "&floor=" + floor;
+      const q = pageUrl("contact") + "?plan=" + encodeURIComponent(u[0]) + "&floor=" + floor;
       tr.innerHTML =
         "<td>Unit " + u[0] + "</td>" +
         "<td class='meta'>" + (u[1] === 0 ? "Studio" : u[1] + "<span class='mob'> bed</span>") + "</td>" +

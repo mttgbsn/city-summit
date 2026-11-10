@@ -1,0 +1,86 @@
+/* Inner pages (residences, neighborhood, about, gallery, contact) in styles 1-4.
+   Load order: styles.css (page layouts) -> directions.css -> direction-N.css (the style) -> inner.css.
+   styles.css draws with --paper/--ink/--surface/--blue/--night; map those to each style's colours. */
+.inner{--paper:var(--bg);--ink:var(--fg);--on-ink:var(--bg);--night:var(--fg);--on-night:var(--bg);--blue:var(--red)}
+.d1.inner{--surface:#FFFFFF}
+.d2.inner{--surface:#FBF8F2}
+.d3.inner{--surface:var(--panel);--blue:var(--glass)}
+.d4.inner{--surface:#FFFFFF;--blue:var(--lw-navy)}
+
+/* directions.css resets paragraph margins for the home pages; inner pages need them back */
+:where(.inner) p{margin:0 0 1em}
+:where(.inner) .faq details p{margin:0 0 20px}
+
+/* Page heading per style */
+.inner .page-head{padding-top:clamp(32px,5vw,64px)}
+.inner .page-head h1{font-family:var(--display)}
+.d1 .page-head h1{font-weight:600;text-transform:uppercase;line-height:.95;font-size:clamp(2.8rem,6.6vw,5.6rem)}
+.d1 .page-head{border-left:0}
+.d1 .page-head h1::after{content:"";display:block;width:64px;height:8px;background:var(--red);margin-top:18px}
+.d2 .page-head{text-align:center}
+.d2 .page-head h1{font-weight:300;margin:0 auto;max-width:18ch}
+.d2 .page-head .lede{margin-left:auto;margin-right:auto}
+.d3 .page-head h1{font-weight:300}
+.d3 .page-head h1::before{content:"City Summit /";display:block;font:500 .8rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--glass);margin-bottom:14px}
+/* LawlerWood: Mist title band, title right-aligned and uppercase, as on lawlerwood.com */
+.d4 .page-head{background:var(--lw-mist);box-shadow:0 0 0 100vmax var(--lw-mist);clip-path:inset(0 -100vmax);padding-top:clamp(40px,5vw,64px);padding-bottom:clamp(28px,3.5vw,44px);text-align:right}
+.d4 .page-head h1{font-weight:300;text-transform:uppercase;color:var(--lw-navy);letter-spacing:.01em;margin-left:auto;max-width:none;font-size:clamp(2.2rem,4.4vw,3.4rem)}
+.d4 .page-head .lede{margin-left:auto;color:var(--lw-body)}
+.d4 .banner{margin-top:0}
+
+/* Banner images */
+.d2 .banner{max-width:calc(var(--wrap) + 160px);margin-left:auto;margin-right:auto;border-radius:6px}
+.d3 .banner{opacity:.92}
+.d1 .banner{border-top:clamp(8px,1vw,14px) solid var(--red);border-bottom:clamp(8px,1vw,14px) solid var(--red)}
+
+/* Residences: "what every home includes" sits in a column here, not across the page */
+.inner .inside .spec{display:block;margin-top:0}
+.d1 .floors{border:2px solid var(--fg);border-bottom-width:6px}
+.d1 .floors button[aria-pressed="true"]{box-shadow:inset 6px 0 0 var(--red)}
+.d2 .floors{border-radius:8px;border-color:#B9A993}
+.d3 .floors{border-color:var(--fg)}
+.d3 .floors button b,.d3 .units td:first-child{font-family:var(--display)}
+.d3 .units th,.d3 .plate-cap,.d3 .filters button,.d3 .tabs button{font-family:var(--mono);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase}
+.d3 .units td.price{color:var(--glass)}
+.d3 .plate{background:#fff}
+.d4 .floors{border-color:var(--lw-navy)}
+.d4 .floors button[aria-pressed="true"]{background:var(--lw-navy);color:#fff;box-shadow:inset 5px 0 0 var(--lw-sky)}
+.d4 .units td.price{color:var(--lw-navy)}
+.d4 .filters button[aria-pressed="true"],.d4 .tabs button[aria-selected="true"]{background:var(--lw-navy);border-color:var(--lw-navy);color:#fff}
+.d4 .filters button,.d4 .tabs button{color:var(--lw-navy);border-color:#C9D3DB;font-size:.85rem}
+.d2 .filters button,.d2 .tabs button{border-radius:999px}
+.d2 .photos button,.d2 .gallery button,.d2 .hood-img,.d2 .story-img,.d2 .map{border-radius:6px}
+.d1 .filters button[aria-pressed="true"],.d1 .tabs button[aria-selected="true"]{background:var(--red);border-color:var(--red);color:#fff}
+.d1 .units caption,.d1 .story-body h3{font-family:var(--display);font-weight:600;text-transform:uppercase}
+
+/* Links in lists */
+.d4 .places a,.d4 .link-btn{color:var(--lw-navy)}
+.d3 .places a:hover{color:var(--glass)}
+
+/* Contact page form */
+.inner .contact{background:var(--surface)}
+.d3 .contact input,.d3 .contact textarea{background:var(--bg);color:var(--fg);border-color:var(--line)}
+.d2 .contact input,.d2 .contact textarea{border-radius:6px}
+.d4 .contact{background:var(--lw-mist)}
+.d4 .contact h1{text-transform:uppercase;color:var(--lw-navy)}
+.d4 .contact .btn-solid{background:var(--lw-navy);border-color:var(--lw-navy)}
+
+/* Closing band buttons: readable on each style's band colour */
+.inner .cta .btn{cursor:pointer}
+.d2 .cta .btn-light{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.d2 .cta .btn-ghost{color:var(--fg);border-color:var(--fg)}
+.d3 .cta .btn-light{background:var(--bg);border-color:var(--bg);color:var(--fg)}
+.d3 .cta .btn-ghost{color:var(--bg);border-color:var(--bg)}
+.d4 .cta .btn-light{background:var(--lw-navy);border-color:var(--lw-navy);color:#fff}
+.d4 .cta .btn-ghost{color:var(--lw-navy);border-color:var(--lw-navy)}
+.d1 .cta .btn:hover{background:var(--char);border-color:var(--char);color:#fff}
+.d2 .cta .btn:hover{background:var(--red);border-color:var(--red);color:#fff}
+.d3 .cta .btn:hover{background:#0E6E66;border-color:#0E6E66;color:#fff}
+.d4 .cta .btn:hover{background:var(--lw-sky);border-color:var(--lw-sky);color:#fff}
+.inner .cta .wrap{align-items:center}
+.inner .cta .actions{justify-content:flex-end}
+@media (max-width:860px){.inner .cta .actions{justify-content:flex-start}}
+
+/* Contact: form band starts right under the header */
+.inner .contact.page{margin-top:0}
+@media (max-width:860px){.d4 .page-head{text-align:left}.d4 .page-head h1,.d4 .page-head .lede{margin-left:0}}
