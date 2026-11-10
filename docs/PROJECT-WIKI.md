@@ -27,11 +27,11 @@ This file records what was built, every decision along the way and the reason fo
 |---|---|
 | **Goal** | Sell the 89 condos at City Summit, 515 Cafego Place, Knoxville, TN 37902 |
 | **Original site** | https://www.citysummitknoxville.com (Webflow) |
-| **Redesign** | Six static pages plus four alternative home pages for comparison |
+| **Redesign** | Every page (home, Residences, Neighborhood, About, Gallery, Contact) in five styles: Original plus four design directions. 31 pages including the chooser. |
 | **Live preview** | https://mttgbsn.github.io/city-summit/ (opens on a chooser page) |
 | **Repository** | https://github.com/mttgbsn/city-summit (public, branch `main`) |
 | **Local preview** | http://localhost:8123 (server config in `.claude/launch.json`) |
-| **Status** | Four directions live for review. No direction chosen yet. |
+| **Status** | Four directions live for review, each covering every page. A style bar at the top right of every page switches to the same page in another style. No direction chosen yet. |
 | **Brand reference** | `docs/STYLE-GUIDE-LAWLERWOOD.md`, drawn from https://www.lawlerwood.com (used by option 4) |
 
 ---
@@ -62,13 +62,15 @@ City_Summit/
 │   └── use-web-images.js    points pages at the web-sized copies in images/web
 ├── .claude/launch.json      local preview server (python http.server on port 8123)
 └── citysummit-site/         the website = the git repository that is published
-    ├── index.html           chooser page: live previews of the four options
+    ├── index.html           chooser page: live previews of the four options (no style bar)
     ├── home-1.html          option 1, Red Frame
     ├── home-2.html          option 2, Brick & Timber
     ├── home-3.html          option 3, Elevation
     ├── home-4.html          option 4, LawlerWood
-    ├── current.html         the home page as it was before the three directions
-    ├── residences.html      floor-by-floor plans and prices (data lives in site.js)
+    ├── current.html         home page in the Original style (before the directions)
+    ├── residences.html      Original style: floor-by-floor plans and prices (data lives in site.js)
+    ├── residences-1.html … residences-4.html   same page in styles 1–4 (generated)
+    │   (likewise neighborhood-N, about-N, gallery-N, contact-N)
     ├── neighborhood.html    places nearby (data lives in site.js)
     ├── about.html           story, team and the full FAQ
     ├── gallery.html
@@ -80,6 +82,8 @@ City_Summit/
     ├── direction-2.css      Brick & Timber look
     ├── direction-3.css      Elevation look
     ├── direction-4.css      LawlerWood look
+    ├── inner.css            fits styles 1–4 onto the inner-page layouts from styles.css
+    ├── stylebar.css         the style bar at the top of every page
     ├── favicon.svg
     ├── docs/
     │   ├── PROJECT-WIKI.md            this file (public)
@@ -88,7 +92,7 @@ City_Summit/
         └── web/             resized copies the pages actually load
 ```
 
-**Important:** `home-1.html` to `home-4.html` are generated. Edit `tools/build-directions.js` (or the CSS files) and rebuild; hand edits to the HTML will be lost on the next build. See [section 11](#11-how-to-rebuild-and-republish).
+**Important:** `home-1.html` to `home-4.html` and every `*-1.html` to `*-4.html` inner page are generated. The build also patches the Original-style pages (`current.html`, `residences.html` etc.) to add the style bar and point their logo at `current.html`; their content is otherwise hand-made and is the source for the other styles. Edit `tools/build-directions.js` (or the CSS files) and rebuild; hand edits to the HTML will be lost on the next build. See [section 11](#11-how-to-rebuild-and-republish).
 
 Where the protected content comes from when the home pages are built:
 
@@ -130,7 +134,9 @@ Page order on options 1–3 (top to bottom): header → hero → four key facts 
 
 Option 4 order: header → photo with angled label → intro (headline left; "Find your place above it all" and arrow links right) → facts band → two balcony views → Residences → Inside the homes → A block from everything → team → questions → tour form → Navy footer.
 
-A small switcher on the right edge of each option (bottom bar on phones) jumps between options 1, 2, 3, 4 and the chooser. It is a review aid and should be removed before launch.
+**Style bar.** A dark bar at the very top of every page (except the chooser), right-aligned, lists Original, 1 Red Frame, 2 Brick & Timber, 3 Elevation, 4 LawlerWood and "All styles". Each link opens **the same page** in that style (e.g. from `about-2.html` to `about-4.html`); the current style is highlighted. It stays visible while scrolling, with the site header sticking just below it. On phones it scrolls sideways and starts centred on the current style. It replaced the earlier right-edge switcher.
+
+**Inner pages per style.** Residences, Neighborhood, About, Gallery and Contact keep their content and layout from the Original pages; each style recolours and retypes them through `inner.css`, with a style-specific page heading (Red Frame: condensed capitals with a red bar; Brick & Timber: centred serif; Elevation: dark with a mono label; LawlerWood: right-aligned title on a Mist band) and matching buttons, filters, floor picker and closing band. All links inside a style stay in that style.
 
 ---
 
@@ -206,6 +212,15 @@ Request: make a style guide from https://www.lawlerwood.com, save it as Markdown
 - Built option 4 from the guide; added it to the chooser (now a 2×2 / 4-across grid, "Four directions…") and the switcher.
 - Checked: headline, photo, label and all four facts are on the first screen at 1366×660 and 1440×800; no sideways scrolling on phones; disclaimer identical to the other options; form still goes to rgibson@lawlerwood.com.
 
+### Step 10 — Every page in every style, and a style bar
+Request: every page in each style should reflect that style, and a switcher at the top right of any page should open the other styles of the same page.
+- Before this, only the home pages came in four styles; Residences, Neighborhood, About, Gallery and Contact were shared and kept the original look.
+- The build now generates `residences-1.html` … `contact-4.html` (20 pages) from the Original pages. Only the head (fonts and stylesheets), the body class and internal links change; the `<main>` content is copied whole.
+- `inner.css` maps each style's colours and fonts onto the inner-page layouts in `styles.css`, plus per-style page headings, floor picker, filters, contact band and closing-band buttons.
+- The style bar (`stylebar.css`) went onto all 30 site pages, Original included. The right-edge switcher was removed.
+- `site.js` now keeps "Ask about this plan" links on the Residences table in the current style (e.g. `contact-2.html?plan=B1&floor=1`).
+- Checks: no broken links; no link outside the style bar leaves its style; the `<main>` content and disclaimer of every styled inner page match the Original exactly; all 9 pages with the form send to rgibson@lawlerwood.com; the plan pre-fill works in the styled Contact pages; rebuilding twice gives identical files; desktop and phone screenshots checked for samples of every style and page type.
+
 ---
 
 ## 6. Images
@@ -263,6 +278,10 @@ Request: make a style guide from https://www.lawlerwood.com, save it as Markdown
 | D19 | One photo instead of LawlerWood's slider | Sliders hide content and slow phones; the brief wanted more visible on the first screen |
 | D20 | Style guide kept outside the published folder | It is a working reference, not part of the public site (reversed by D21) |
 | D21 | Wiki and style guide moved into `citysummit-site/docs/` and published | User asked to add both to the public GitHub repo; one copy only, so they can't drift apart |
+| D22 | Generate a full set of pages per style (`page-N.html`) rather than switching CSS with JavaScript | Works without JavaScript, every style page has its own address to share, and the home pages differ in layout, not just colour |
+| D23 | Inner pages reuse the Original layouts and content; only styling changes | Protected content (unit data, FAQ, disclaimer, form) can't drift between styles |
+| D24 | Style bar on every page, top right, sticky; links to the same page in each style | User wanted switching to be easy from any page; replaces the right-edge switcher |
+| D25 | "Original" included as a style in the bar | Lets reviewers compare against the pre-redesign look on any page |
 
 ---
 
@@ -272,6 +291,7 @@ Newest first. Times are local (Eastern), 9 November 2026.
 
 | When | Commit | Change |
 |---|---|---|
+| 19:55 | `dfd365b` | Every page generated in styles 1–4; style bar at the top right of every page; right-edge switcher removed |
 | 19:40 | `5c3d064` | Wiki and style guide moved into `docs/` and published to GitHub |
 | 19:30 | `a4b5f82` | Option 4 (LawlerWood) added; chooser and switcher offer four options |
 | — | — | `STYLE-GUIDE-LAWLERWOOD.md` written from lawlerwood.com |
@@ -290,7 +310,7 @@ Newest first. Times are local (Eastern), 9 November 2026.
 - [ ] **Choose a direction**, then restyle the inner pages (Residences, Neighborhood, About, Gallery, Contact) to match it. They still use the earlier styling.
 - [ ] **Revoke the GitHub token** used in this project at github.com/settings/tokens; it has very broad access and was shared in chat.
 - [ ] Add a Google Analytics ID to `GA_MEASUREMENT_ID` in `site.js` to measure visits and leads.
-- [ ] Remove the compare switcher (`.dirs` in `directions.css` and in the build script) before launch.
+- [ ] Before launch, decide whether to keep the style bar. To remove it: drop `addBar` from the build script, delete `stylebar.css`, and rebuild.
 - [ ] Decide whether the preview's live forms are acceptable, or point them elsewhere while in review.
 - [ ] Add `noindex` to the inner pages of the preview, or make the repo private once a paid plan allows Pages on private repos.
 - [ ] Structured data for search engines (not done).
@@ -308,7 +328,7 @@ python -m http.server 8123 --bind 127.0.0.1 --directory "C:/Users/mttgb/Desktop/
 ```
 Then open http://localhost:8123.
 
-**Rebuild the four option pages** after editing `tools/build-directions.js`:
+**Rebuild all styled pages** (homes, inner pages in every style, style bar on the originals) after editing `tools/build-directions.js` or any Original-style page:
 ```bash
 node "C:/Users/mttgb/Desktop/City_Summit/tools/build-directions.js" "C:/Users/mttgb/Desktop/City_Summit/citysummit-site"
 ```
