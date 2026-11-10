@@ -272,7 +272,7 @@ Newest first. Times are local (Eastern), 9 November 2026.
 
 | When | Commit | Change |
 |---|---|---|
-| 19:40 | (this commit) | Wiki and style guide moved into `docs/` and published to GitHub |
+| 19:40 | `5c3d064` | Wiki and style guide moved into `docs/` and published to GitHub |
 | 19:30 | `a4b5f82` | Option 4 (LawlerWood) added; chooser and switcher offer four options |
 | — | — | `STYLE-GUIDE-LAWLERWOOD.md` written from lawlerwood.com |
 | 19:16 | `1b7fb90` | Empty commit to redeploy after two GitHub deploy timeouts |
