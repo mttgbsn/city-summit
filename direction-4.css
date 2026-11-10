@@ -1,0 +1,134 @@
+/* Direction 4: LawlerWood.
+   Follows STYLE-GUIDE-LAWLERWOOD.md, drawn from lawlerwood.com, the developer's own site:
+   Navy and Sky blues, Open Sans light headings, the hanging logo badge, angled Sky photo
+   labels, Mist title bands and a Navy footer. */
+:root{
+  --lw-navy:#00356B; --lw-sky:#009DDC; --lw-charcoal:#2E353E; --lw-slate:#5E7279;
+  --lw-body:#5F6670; --lw-caption:#777777; --lw-mist:#EAEFF3; --lw-rule:#EAEAEA; --lw-offwhite:#F0F0F0;
+  --bg:#FFFFFF; --fg:var(--lw-charcoal); --muted:var(--lw-body); --line:var(--lw-rule);
+  --red:var(--lw-navy); --on-red:#fff; --focus:var(--lw-sky);
+  --display:"Open Sans",Arial,sans-serif; --body:"Open Sans",Arial,sans-serif;
+  --wrap:1200px;
+}
+body{font-size:1.0625rem;line-height:1.65;color:var(--lw-body)}
+h1,h2,h3{font-weight:300;letter-spacing:-.02em;line-height:1.12;color:var(--lw-charcoal)}
+h2{font-size:clamp(1.9rem,3.6vw,2.9rem)}
+h3{font-weight:400}
+a{color:var(--lw-navy)}
+
+/* Buttons: square, Navy, Sky on hover */
+.btn{font:600 .95rem var(--body);letter-spacing:.02em;border:1px solid var(--lw-navy);color:var(--lw-navy);background:#fff;padding:.85em 1.5em}
+.btn-solid{background:var(--lw-navy);color:#fff}
+.btn:hover{background:var(--lw-sky);border-color:var(--lw-sky);color:#fff}
+.text-link{border-bottom:0;padding-bottom:0;color:var(--lw-navy);font-weight:600}
+.text-link::before{content:"\2192\00a0";}
+.text-link:hover{color:var(--lw-navy);text-decoration:underline;text-underline-offset:4px}
+
+/* Header with the hanging badge (City Summit wordmark on a Sky tab) */
+.site-header{background:#fff;border-bottom:1px solid var(--lw-rule)}
+.site-header .wrap{min-height:72px;position:relative}
+.site-header .brand{align-self:flex-start;background:var(--lw-sky);color:#fff;padding:30px 26px 22px;margin-bottom:-26px;position:relative;z-index:2;--red:var(--lw-navy)}
+.site-header .logo{height:26px}
+.nav{gap:30px}
+.nav a:not(.btn){font-size:.85rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--lw-slate)}
+.nav a:not(.btn):hover{box-shadow:none;color:var(--lw-sky)}
+.nav .btn{font-size:.85rem;text-transform:uppercase;letter-spacing:.05em;padding:.75em 1.2em}
+
+/* Hero: one strong photo with the angled Sky label */
+.hero{position:relative;background:var(--lw-mist)}
+.hero img{width:100%;height:clamp(200px,calc(100vh - 73px - 360px),560px);object-fit:cover;object-position:50% 42%}
+.tag{position:absolute;right:0;bottom:clamp(18px,3vw,40px);margin:0;background:var(--lw-sky);color:#fff;font:600 clamp(.85rem,1.2vw,1rem)/1 var(--body);letter-spacing:.08em;text-transform:uppercase;padding:16px clamp(28px,5vw,80px) 16px 56px;clip-path:polygon(28px 0,100% 0,100% 100%,0 100%)}
+.status::before{display:none}
+
+/* Intro split, as on the LawlerWood home page */
+.intro{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(24px,5vw,72px);padding-top:clamp(18px,2.2vw,30px);padding-bottom:clamp(16px,2vw,26px)}
+.intro h1{font-size:clamp(1.9rem,3vw,2.7rem);font-weight:300;letter-spacing:-.025em;margin-bottom:10px}
+.intro .lede{font-size:clamp(1.05rem,1.4vw,1.25rem);font-weight:300;color:var(--lw-caption);max-width:44ch}
+.eyebrow{font:600 .85rem var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--lw-navy);margin-bottom:8px}
+.intro p{font-size:.95rem;line-height:1.6;margin:0 0 .5em;max-width:58ch}
+.arrows{display:flex;flex-wrap:wrap;gap:6px 28px;margin-top:12px!important}
+.arrows a{font-weight:600;text-decoration:none}
+.arrows a::before{content:"\2192\00a0"}
+.arrows a:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* Mist band carrying the key facts */
+.mist{background:var(--lw-mist)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);padding:14px 0}
+.facts div{padding:0 20px}
+.facts div:first-child{padding-left:0}
+.facts div+div{border-left:1px solid #D2DBE2}
+.facts dt{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--lw-slate)}
+.facts dd{font:300 clamp(1.15rem,1.65vw,1.5rem)/1.2 var(--body);white-space:nowrap;color:var(--lw-navy);margin-top:2px}
+
+/* Views */
+.view{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:12px}
+.view-img{position:relative;overflow:hidden;background:var(--lw-mist)}
+.view-img img{width:100%;height:100%;aspect-ratio:3/2;object-fit:cover}
+
+/* Section openers: heading over a thin rule, like the page title bands */
+.sec-row{border-bottom:1px solid var(--lw-rule);padding-bottom:16px}
+.sec-row h2,.qa h2,.cta h2,.split h2{font-weight:300}
+
+/* Residences: project-card style */
+.plan{border:0;background:#fff}
+.plan-img{border:1px solid var(--lw-rule)}
+.plan-body{padding:18px 0 0}
+.plan h3{font-size:1.35rem;color:var(--lw-charcoal)}
+.plan .size{font-size:.9rem;color:var(--lw-caption)}
+.plan .from{font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--lw-slate);margin:12px 0 14px}
+.plan .from strong{font:300 2.3rem/1.1 var(--body);letter-spacing:-.02em;text-transform:none;color:var(--lw-navy)}
+.plan-links{font-size:.9rem;border-top:1px solid var(--lw-rule);padding-top:12px}
+.plan-links span{color:var(--lw-caption)}
+
+/* Inside the homes */
+.inside-sec .strip{gap:6px}
+.spec{border-top:1px solid var(--lw-rule)}
+.spec strong{font-weight:600;color:var(--lw-charcoal)}
+
+.split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,6vw,80px);align-items:center}
+.split.flip .hood-img{order:2}
+.split p{margin:16px 0 22px;max-width:46ch}
+.hood-img img{width:100%;aspect-ratio:3/2;object-fit:cover}
+
+/* Developer credit: two-colour wordmark */
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);background:var(--lw-mist);padding:26px 30px}
+.team dt{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--lw-slate)}
+.team dd{font:300 1.45rem var(--body);color:var(--lw-charcoal);margin-top:4px}
+.team a{text-decoration:none}
+.lw-l,.lw-w{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:.04em}
+.lw-l{color:var(--lw-sky)}
+.lw-w{color:var(--lw-navy)}
+
+.faq{border-top:1px solid var(--lw-rule)}
+.faq summary{font-weight:400;color:var(--lw-charcoal)}
+.faq summary::after{color:var(--lw-sky)}
+
+/* Tour band on Mist */
+.cta{margin-top:clamp(64px,9vw,120px);background:var(--lw-mist);padding:clamp(48px,7vw,96px) 0}
+.cta label{color:var(--lw-charcoal);font-weight:600;font-size:.9rem}
+.cta input,.cta textarea{border-color:#C9D3DB}
+.cta form .btn{background:var(--lw-navy);color:#fff}
+.cta form .btn:hover{background:var(--lw-sky);border-color:var(--lw-sky)}
+.cta-links a{color:var(--lw-navy)}
+
+/* Navy footer */
+footer{background:var(--lw-navy);color:var(--lw-offwhite);border-top:0;margin-top:0;--red:var(--lw-sky)}
+footer a{color:#fff}
+.foot p{color:var(--lw-offwhite)}
+.foot nav a:hover{box-shadow:0 2px 0 var(--lw-sky)}
+.fine{color:rgba(255,255,255,.72);border-top-color:rgba(255,255,255,.2)}
+
+.stickybar .btn{background:var(--lw-navy);color:#fff}
+
+@media (max-width:860px){
+  .site-header .brand{align-self:center;margin-bottom:0;padding:12px 14px}
+  .site-header .logo{height:20px}
+  .hero img{height:auto;aspect-ratio:16/10}
+  .tag{position:static;display:block;clip-path:none;padding:12px var(--gap);text-align:left}
+  .intro,.view,.split,.team{grid-template-columns:1fr}
+  .split.flip .hood-img{order:0}
+  .facts{grid-template-columns:repeat(2,1fr);gap:14px 0}
+  .facts div,.facts div:first-child{padding:0 12px 0 0;border-left:0}
+  .facts dd{white-space:normal}
+  .team{padding:22px}
+}

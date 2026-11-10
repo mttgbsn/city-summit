@@ -15,7 +15,7 @@ header{padding:clamp(28px,5vw,56px) 0 clamp(20px,3vw,32px)}
 .eyebrow{font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red);font-weight:600;margin:0 0 10px}
 h1{font-size:clamp(1.9rem,4vw,3rem);line-height:1.08;letter-spacing:-.02em;font-weight:600;margin:0 0 12px;text-wrap:balance}
 header p{margin:0;color:var(--muted);max-width:62ch}
-.opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px);list-style:none;margin:0;padding:0}
+.opts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2vw,28px);list-style:none;margin:0;padding:0}
 .opt{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);transition:box-shadow .2s,transform .2s}
 .opt:hover,.opt:focus-within{box-shadow:0 14px 40px rgba(0,0,0,.14);transform:translateY(-3px)}
 .shot{position:relative;aspect-ratio:16/10;overflow:hidden;background:#ddd;border-bottom:1px solid var(--line)}
@@ -30,7 +30,8 @@ h2{font-size:1.6rem;line-height:1.15;letter-spacing:-.01em;margin:4px 0 8px}
 .go:focus-visible{outline:3px solid var(--red);outline-offset:3px}
 footer{padding:28px 0 56px;color:var(--muted);font-size:.95rem}
 footer a{color:var(--fg);text-underline-offset:3px}
-@media (max-width:900px){.opts{grid-template-columns:1fr}}
+@media (max-width:1180px){.opts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:700px){.opts{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.opt{transition:none}.opt:hover{transform:none}}
 </style>
 </head>
@@ -38,7 +39,7 @@ footer a{color:var(--fg);text-underline-offset:3px}
 <header>
   <div class="wrap">
     <p class="eyebrow">City Summit · Website redesign</p>
-    <h1>Three directions for the home page. Pick the one that sells it best.</h1>
+    <h1>Four directions for the home page. Pick the one that sells it best.</h1>
     <p>Each option uses the same photos, prices, floor plans and wording. Only the look and feel differ. Open one to try it at full size; a small tab on the right edge of each lets you switch between them.</p>
   </div>
 </header>
@@ -72,11 +73,20 @@ footer a{color:var(--fg);text-underline-offset:3px}
           <a class="go" href="home-3.html">Open option 3</a>
         </div>
       </li>
+      <li class="opt">
+        <div class="shot"><iframe src="home-4.html" title="Preview of option 4" tabindex="-1" aria-hidden="true" scrolling="no"></iframe></div>
+        <div class="meta">
+          <span class="num">Option 4</span>
+          <h2>LawlerWood</h2>
+          <p>Corporate and assured. Follows the developer’s own brand: navy and sky blue, Open Sans, the hanging logo badge and angled photo labels.</p>
+          <a class="go" href="home-4.html">Open option 4</a>
+        </div>
+      </li>
     </ul>
   </div>
 </main>
 <footer>
-  <div class="wrap">For comparison: <a href="current.html">the home page before these directions</a>. The Residences, Neighborhood, About, Gallery and Contact pages are shared by all three for now and keep the earlier styling.</div>
+  <div class="wrap">For comparison: <a href="current.html">the home page before these directions</a>. The Residences, Neighborhood, About, Gallery and Contact pages are shared by all four for now and keep the earlier styling.</div>
 </footer>
 <script>
 /* Scale each live preview to fit its card */
